@@ -1,1 +1,31 @@
+-- Q3: Workers With The Highest Salaries (ID 10353)
 
+-- Problem Description:
+-- Management wants to analyze only employees with official job titles. 
+-- Find the job titles of the employees with the highest salary. 
+-- If multiple employees have the same highest salary, include all their job titles.
+--
+-- Tables:
+-- 1. worker
+--    - worker_id (bigint)
+--    - first_name (varchar)
+--    - last_name (varchar)
+--    - department (varchar)
+--    - salary (bigint)
+--    - joining_date (date)
+-- 2. title
+--    - worker_ref_id (bigint)
+--    - affected_from (date)
+--    - worker_title (varchar)
+
+
+
+
+SELECT t.worker_title AS best_paid_title
+FROM worker w
+JOIN title t ON w.worker_id = t.worker_ref_id
+WHERE w.salary = (
+    SELECT MAX(w.salary)
+    FROM worker w
+    JOIN title t ON w.worker_id = t.worker_ref_id
+);
