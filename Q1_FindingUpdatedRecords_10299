@@ -1,6 +1,4 @@
 -- Q1: Finding Updated Records (ID 10299)
--- Difficulty: Easy
---
 -- Problem Description:
 -- We have a table with employees and their salaries; however, some of the records
 -- are old and contain outdated salary information. Since there is no timestamp,
